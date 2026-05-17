@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import VideoModal from "../components/VideoModal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,16 +38,16 @@ const ProjectButton = ({ label, href = "#", variant = "primary", onClick }) => {
   );
 };
 
-const FeaturedProject = () => {
+const FeaturedProject = ({ onWatchDemo }) => {
   return (
     <section
       className="w-full padding-x-lg"
-      id="work"
-      aria-label="Featured project and portfolio projects"
+id="internship"
+aria-label="Featured project and internship projects"
     >
       <div className="max-w-7xl mx-auto mt-16">
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
-          {/* Left: Featured narrative */}
+          {/* LEFT: Featured narrative */}
           <div className="xl:col-span-7">
             <div className="relative overflow-hidden rounded-3xl border border-black-50 bg-black-100">
               <div className="absolute inset-0 pointer-events-none">
@@ -124,13 +125,13 @@ const FeaturedProject = () => {
                       </p>
                     </div>
                     <div className="card-border rounded-2xl p-4">
-                      <p className="text-blue-50/90 font-semibold">Challenges & solutions</p>
+                      <p className="text-blue-50/90 font-semibold">Challenges &amp; solutions</p>
                       <p className="text-white-50 mt-2 leading-relaxed">
                         Addressed data quality with deduplication + confidence-aware routing; enforced security with JWT and RBAC boundaries.
                       </p>
                     </div>
                     <div className="card-border rounded-2xl p-4">
-                      <p className="text-blue-50/90 font-semibold">Results & impact</p>
+                      <p className="text-blue-50/90 font-semibold">Results &amp; impact</p>
                       <p className="text-white-50 mt-2 leading-relaxed">
                         Faster triage, consistent issue categorisation, and actionable dashboards for operational decision making.
                       </p>
@@ -140,7 +141,7 @@ const FeaturedProject = () => {
 
                 <div className="mt-8 flex flex-col md:flex-row gap-3 flex-wrap">
                   <ProjectButton label="View on GitHub" href="https://github.com/ayazariat" variant="primary" />
-                  <ProjectButton label="Watch Live Demo" href="/videos/citoyen.mp4" variant="ghost" />
+                  <ProjectButton label="Watch Live Demo" onClick={onWatchDemo("/videos/citoyen.mp4")} variant="ghost" />
                 </div>
 
                 <div className="mt-5 flex flex-wrap gap-2 text-white-50 text-sm">
@@ -159,7 +160,7 @@ const FeaturedProject = () => {
             </div>
           </div>
 
-          {/* Right: dashboard preview + 3 captures */}
+          {/* RIGHT: dashboard preview + 3 captures */}
           <div className="xl:col-span-5">
             <div className="space-y-6">
               <div className="rounded-3xl overflow-hidden border border-black-50 bg-black-100">
@@ -171,7 +172,7 @@ const FeaturedProject = () => {
                   <img
                     src="/images/11.png"
                     alt="Smart City dashboard preview mock"
-                    className="w-full h-[500px] object-contain"
+                    className="w-full h-[250px] object-contain"
                   />
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="flex flex-wrap gap-2">
@@ -219,24 +220,7 @@ const FeaturedProject = () => {
         </div>
 
         {/* ── Live Demo Video ─────────────────────────────────── */}
-        <div className="mt-20 mb-16">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="h-2 w-2 rounded-full bg-[#4C9BFF] shadow-[0_0_16px_rgba(76,155,255,0.55)]" />
-              <span className="text-sm font-semibold text-blue-50">Live Demo</span>
-            </div>
-            <div className="relative overflow-hidden rounded-3xl border border-black-50 bg-black-100">
-              <video
-                src="/videos/citoyen.mp4"
-                controls
-                playsInline
-                preload="metadata"
-                className="w-full h-full object-contain"
-                style={{ maxHeight: "520px" }}
-              />
-            </div>
-          </div>
-        </div>
+       
 
         {/* Projects grid */}
         <div className="mt-12">
@@ -281,9 +265,9 @@ const FeaturedProject = () => {
                 github: "https://github.com/ayazariat",
               },
               {
-                title: "SOA & Microservices Platform",
+                title: "SOA &amp; Microservices Platform",
                 date: "December 2025",
-                desc: "Designed a service-oriented architecture with REST & SOAP microservices. The Central Authentication Service is secured with JWT and fronted by a Spring Cloud API Gateway, all containerised with Docker.",
+                desc: "Designed a service-oriented architecture with REST &amp; SOAP microservices. The Central Authentication Service is secured with JWT and fronted by a Spring Cloud API Gateway, all containerised with Docker.",
                 img: "/images/18.png",
                 tech: ["Spring Boot", "Spring Cloud", "JWT", "Docker", "Node.js"],
                 github: "https://github.com/ayazariat",
@@ -325,8 +309,7 @@ const FeaturedProject = () => {
 
                   <div className="mt-5 flex flex-col sm:flex-row gap-2">
                     <ProjectButton label="View on GitHub" href={p.github} variant="ghost" />
-                    <ProjectButton label="Live Demo" href="https://example.com" variant="ghost" />
-                    <ProjectButton label="Architecture" href="#architecture" variant="ghost" />
+                   
                   </div>
                 </div>
               </article>
@@ -340,6 +323,10 @@ const FeaturedProject = () => {
 
 const ShowcaseSection = () => {
   const rootRef = useRef(null);
+  const [videoSrc, setVideoSrc] = useState(null);
+
+  const openVideo = (src) => () => setVideoSrc(src);
+  const closeVideo = () => setVideoSrc(null);
 
   useGSAP(() => {
     if (!rootRef.current) return;
@@ -370,10 +357,10 @@ const ShowcaseSection = () => {
 
   return (
     <div ref={rootRef}>
-      <FeaturedProject />
+      <FeaturedProject onWatchDemo={openVideo} />
+      {videoSrc && <VideoModal src={videoSrc} onClose={closeVideo} />}
     </div>
   );
 };
 
 export default ShowcaseSection;
-

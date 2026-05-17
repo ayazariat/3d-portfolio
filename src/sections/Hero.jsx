@@ -50,15 +50,24 @@ const Hero = () => {
               <h1>that Deliver Results</h1>
             </div>
 
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I'm Aya Zariat — Software Engineering &amp; Information Systems student based in Tunisia.
-              Passionate about Full-Stack development, SOA, and AI. Currently in engineering cycle
-              in alternance, seeking a dynamic company to strengthen my technical skills and grow through
-              innovative projects.
-            </p>
+           <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
+  Hi, I'm Aya Zariat — Software Engineering &amp; Information Systems student.
+  Passionate about Full-Stack development, SOA, and AI. Currently in an engineering work-study program,
+  seeking a dynamic company to strengthen my technical skills and grow through innovative projects.
+</p>
+
+<div className="mt-4 text-white-50 md:text-lg relative z-10">
+  <h3 className="font-semibold text-white">
+    Bachelor's Degree in Software Engineering &amp; Information Systems
+  </h3>
+  <p>
+    Faculty of Sciences of Monastir, Tunisia | September 2023 – June 2026
+  </p>
+</div>
+            
 
             <Button
-              text="See My Work"
+text="See My work"
               className="md:w-80 md:h-16 w-60 h-12"
               id="counter"
             />

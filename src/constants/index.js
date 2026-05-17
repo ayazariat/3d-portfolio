@@ -1,7 +1,7 @@
 const navLinks = [
   {
     name: "Projects",
-    link: "#work",
+    link: "#internship",
   },
   {
     name: "Experience",
@@ -151,29 +151,28 @@ const expCards = [
     review: "Aya excelled in developing an innovative Smart City platform with AI-powered features during her PFE internship at DEV SYNC.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
-    title: "Stagiaire PFE – Développement Logiciel",
-    date: "Février 2026 – Mai 2026 · Nabeul, Tunisie",
+    title: "Internship – PFE Software Development Intern",
+    date: "February 2026 – May 2026 · Nabeul, Tunisia",
     responsibilities: [
-      "Conception et développement d'une plateforme Smart City de gestion des réclamations citoyennes.",
-      "Implémentation d'un workflow complet : dépôt, validation, assignation, résolution.",
-      "Mise en place d'un système d'authentification sécurisé et gestion des rôles (JWT, RBAC).",
-      "Développement de fonctionnalités IA : classification automatique des réclamations, prédiction du niveau d'urgence, détection de doublons, analyse de tendances urbaines.",
-      "Développement de tableaux de bord analytiques pour le suivi et l'aide à la décision.",
+      "Design and development of a Smart City platform for citizen complaint management.",
+      "Implementation of a complete workflow: submission, validation, assignment, and resolution.",
+      "Implementation of a secure authentication system and role management (JWT, RBAC).",
+      "Development of AI features: automatic complaint classification, urgency level prediction, duplicate detection, and urban trend analysis.",
+      "Development of analytical dashboards for progress tracking and decision support.",
     ],
   },
   {
-    review: "Aya contributed to the JOCL web application development with strong technical skills in full-stack technologies at CNI.",
+    review: "Aya excelled in developing an innovative Smart City platform with AI-powered features during her PFE internship at DEV SYNC.",
     imgPath: "/images/exp2.png",
     logoPath: "/images/logo2.png",
-    title: "Stagiaire en Développement Logiciel",
-    date: "Juillet 2025 – Août 2025 · Tunis, Tunisie",
+    title: "Internship – Software Development",
+    date: "July 2025 – August 2025 · Tunis, Tunisia",
     responsibilities: [
-      "Développement de l'application web JOCL (Journal Officiel des Collectivités Locales) avec Angular / Spring Boot (Java 23).",
-      "Définition du modèle de données et conception du schéma sous PostgreSQL.",
-      "Collaboration sur GitHub et participation aux réunions techniques dans une approche agile.",
+      "Development of the JOCL web application (Official Journal of Local Authorities) using Angular / Spring Boot (Java 23).",
+      "Definition of the data model and database schema design using PostgreSQL.",
+      "Collaboration on GitHub and participation in technical meetings following an agile approach.",
     ],
   },
-
 ];
 
 const expLogos = [
@@ -197,7 +196,7 @@ const expLogos = [
 const socialImgs = [
   {
     name: "github",
-    imgPath: "/images/git.svg",
+    imgPath: "/images/git.png",
     href: "https://github.com/ayazariat",
   },
   {
