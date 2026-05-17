@@ -1,4 +1,3 @@
-import Testimonials from "./sections/Testimonials";
 import Footer from "./sections/Footer";
 import Contact from "./sections/Contact";
 import TechStack from "./sections/TechStack";
@@ -8,6 +7,7 @@ import ShowcaseSection from "./sections/ShowcaseSection";
 import LogoShowcase from "./sections/LogoShowcase";
 import FeatureCards from "./sections/FeatureCards";
 import Navbar from "./components/NavBar";
+import Testimonials from "./sections/Testimonials";
 
 const App = () => (
   <>

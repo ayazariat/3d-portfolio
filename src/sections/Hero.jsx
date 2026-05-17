@@ -51,8 +51,10 @@ const Hero = () => {
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Adrian, a developer based in Croatia with a passion for
-              code.
+              Hi, I'm Aya Zariat — Software Engineering &amp; Information Systems student based in Tunisia.
+              Passionate about Full-Stack development, SOA, and AI. Currently in engineering cycle
+              in alternance, seeking a dynamic company to strengthen my technical skills and grow through
+              innovative projects.
             </p>
 
             <Button

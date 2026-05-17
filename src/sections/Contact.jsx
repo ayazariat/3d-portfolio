@@ -20,7 +20,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+    setLoading(true);
 
     try {
       await emailjs.sendForm(
@@ -29,13 +29,11 @@ const Contact = () => {
         formRef.current,
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       );
-
-      // Reset form and stop loading
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
     } finally {
-      setLoading(false); // Always stop loading, even on error
+      setLoading(false);
     }
   };
 
@@ -43,12 +41,13 @@ const Contact = () => {
     <section id="contact" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
-          title="Get in Touch – Let’s Connect"
-          sub="💬 Have questions or ideas? Let’s talk! 🚀"
+          title="Get in Touch"
+          sub="Have a project in mind or want to collaborate? I would love to hear from you."
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5">
             <div className="flex-center card-border rounded-xl p-10">
+              <h3 className="text-white-50 font-semibold mb-8"></h3>
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
@@ -62,7 +61,7 @@ const Contact = () => {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="What’s your good name?"
+                    placeholder="What is your full name?"
                     required
                   />
                 </div>
@@ -75,7 +74,7 @@ const Contact = () => {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="What’s your email address?"
+                    placeholder="What is your email address?"
                     required
                   />
                 </div>
@@ -105,6 +104,8 @@ const Contact = () => {
                   </div>
                 </button>
               </form>
+
+            
             </div>
           </div>
           <div className="xl:col-span-7 min-h-96">
