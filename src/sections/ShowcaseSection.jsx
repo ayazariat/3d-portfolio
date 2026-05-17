@@ -11,20 +11,31 @@ const ProjectBadge = ({ children }) => (
   </span>
 );
 
-const ProjectButton = ({ label, href = "#", variant = "primary" }) => (
-  <a
-    href={href}
-    className={
-      variant === "ghost"
-        ? "inline-flex items-center justify-center rounded-xl border border-black-50 bg-black-100/60 px-4 py-3 text-sm font-semibold text-white-50 transition-all duration-300 hover:bg-black-50 hover:text-black-50"
-        : "inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#4C9BFF] to-[#A55CFF] px-4 py-3 text-sm font-semibold text-black rounded-xl transition-all duration-300 hover:brightness-110"
-    }
-    target={href.startsWith("http") ? "_blank" : undefined}
-    rel={href.startsWith("http") ? "noreferrer" : undefined}
-  >
-    {label}
-  </a>
-);
+const ProjectButton = ({ label, href = "#", variant = "primary", onClick }) => {
+  const className =
+    variant === "ghost"
+      ? "inline-flex items-center justify-center rounded-xl border border-black-50 bg-black-100/60 px-4 py-3 text-sm font-semibold text-white-50 transition-all duration-300 hover:bg-black-50 hover:text-black-50"
+      : "inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#4C9BFF] to-[#A55CFF] px-4 py-3 text-sm font-semibold text-black rounded-xl transition-all duration-300 hover:brightness-110";
+
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} className={className}>
+        {label}
+      </button>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      className={className}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noreferrer" : undefined}
+    >
+      {label}
+    </a>
+  );
+};
 
 const FeaturedProject = () => {
   return (
